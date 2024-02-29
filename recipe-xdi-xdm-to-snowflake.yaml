@@ -1,0 +1,27 @@
+source:
+  type: semarchy-xdi
+  config:
+    xdi_filename: './assets/xdi-mappings/load-golden-customers.deliv.xdg'
+
+sink:
+  type: "datahub-rest"
+  config:
+    server: 'https://tenant.env.account.semarchy.net/api/intelligence/catalog' # Change to desired xDG/DataHub's GMS instance running anywhere remotely (cloud, etc…)
+    token: PASTE_TOKEN_HERE
+
+transformers:
+- type: "add_to_xdg_initiative"
+  config:
+    initiative_urn: "urn:li:dataProduct:data-quality"
+    xdg_backend_url: "https://tenant.env.account.semarchy.net/api/intelligence/governance"
+- type: "simple_add_dataset_ownership"
+  config:
+    owner_urns:
+    - "urn:li:corpuser:business-owner@customer.com"
+    - "urn:li:corpuser:fx.nicolas@semarchy.com"
+    ownership_type: "BUSINESS_OWNER"
+- type: "simple_add_dataset_ownership"
+  config:
+    owner_urns:
+    - "urn:li:corpuser:data-steward@customer.com"
+    ownership_type: "TECHNICAL_OWNER"

@@ -1,0 +1,41 @@
+version: 1
+source: Semarchy
+owners:
+  users:
+  - xDG-admin
+nodes:
+  - name: Sales
+    description: A set of terms related to Sales activities
+    id: sales
+    nodes:
+      - name: Pre-Sales
+        id: pre-sales
+        description: Terms for activities taking place before a customer signed a contract.
+        terms:
+        - name: Lead
+          id: lead
+          description: |-
+            A lead is an individual or organization that has expressed some level of interest or potential in a company's products, services, or offerings. Leads are often considered potential prospects or customers who are at different stages of the sales funnel, indicating varying degrees of engagement and readiness to make a purchase decision.
+            Leads can be generated through various channels, including online marketing efforts, trade shows, networking events, referrals, and more. When someone provides their contact information, such as their name, email address, or phone number, and shows some interest in a company's offerings, they become a lead.
+        - name: Sales-Qualified Lead
+          id: sql
+          description: |-
+            A Sales-Qualified Lead (SQL) is a prospect or potential customer who has been evaluated and deemed by the sales team to have a higher likelihood of making a purchase. This evaluation is typically based on the lead's engagement with marketing materials, their expressed interest in a product or service, and their alignment with the ideal customer profile. 
+            Unlike Marketing-Qualified Leads (MQLs), which are leads that have shown some level of interest in a company's offerings but may not be immediately ready for direct sales engagement, SQLs have progressed further along the sales funnel. They have demonstrated a stronger intent and are considered more likely to convert into a paying customer. SQLs are typically passed from the marketing team to the sales team for personalized outreach, which can include more in-depth discussions, product demonstrations, and negotiations.
+        - name: Marketing Qualified Lead
+          id: mql
+          description: |-
+            A Marketing Qualified Lead (MQL) is a prospective customer or individual who has shown a certain level of interest in a company's products or services based on their interactions with marketing efforts. MQLs are identified through various actions and behaviors that indicate their potential as viable leads for further nurturing and potential conversion into customers.
+            MQLs are often determined based on a set of predetermined criteria established by the marketing and sales teams. These criteria can include actions such as visiting a company's website, downloading a whitepaper or eBook, signing up for a newsletter, attending a webinar, or engaging with content on social media. Essentially, MQLs are individuals who have demonstrated some level of engagement or interest that suggests they might be open to learning more about a company's offerings.
+        - name: Proof of Concept
+          id: poc
+          description: |-
+            A Proof of Concept (PoC) is a demonstration or prototype that aims to validate the feasibility, functionality, and potential benefits of a particular idea, concept, technology, or solution. It's a preliminary stage in the development process where a small-scale version of a project is created to show that the core ideas and principles are viable and achievable.
+        - name: Quote
+          id: quote
+          description: |-
+            In the sales context, a quote refers to a formal document provided by a business or salesperson to a potential customer that outlines the specific details and costs associated with a proposed product or service. This document presents the price, terms, and conditions under which the customer can purchase the offered solution.
+      - name: Post-Sales
+        id: post-sales
+        description: Terms for activities taking place before a customer signed a contract.
+        terms:

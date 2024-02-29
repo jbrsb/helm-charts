@@ -1,0 +1,11 @@
+source:
+  type: file
+  config:
+    # Coordinates
+    filename: ./assets/datasets/snowflake.json
+
+sink:
+  type: "datahub-rest"
+  config:
+    server: 'https://tenant.env.account.semarchy.net/api/intelligence/catalog'
+    token: PASTE_TOKEN_HERE

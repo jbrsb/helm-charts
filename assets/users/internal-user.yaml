@@ -1,0 +1,25 @@
+- id: fx.nicolas@semarchy.com
+  first_name: FX
+  last_name: Nicolas
+  display_name: FX Nicolas
+  email: fx.nicolas@semarchy.com
+- id: alexandre.janin@semarchy.com
+  first_name: Alexandre
+  last_name: Janin
+  display_name: Alexandre Janin
+  email: alexandre.janin@semarchy.com
+- id: sebastien.arod@semarchy.com
+  first_name: Sebastien
+  last_name: Arod
+  display_name: Sebastien Arod
+  email: sebastien.arod@semarchy.com
+- id: arnaud.mergey@semarchy.com
+  first_name: Arnaud
+  last_name: Mergey
+  display_name: Arnaud Mergey
+  email: arnaud.mergey@semarchy.com
+- id: gina.chiquillo@semarchy.com
+  first_name: Gina
+  last_name: Chiquillo
+  display_name: Gina Chiquillo
+  email: gina.chiquillo@semarchy.com

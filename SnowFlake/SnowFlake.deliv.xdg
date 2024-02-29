@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xdg:model xmlns:xdg="http://www.semarchy.com/xdi/xdg">
+  <delivery id="9fc7567e-fbeb-45c9-8062-f4abeb8df867" checksum="833183226D118289593BE0B4B9E892F1EB60D433" sourceProcessId="_tNdHAGdhEe6lMrca3aAbUg-proc"/>
+  <mappingResource id="_pl2CsGgHEe64bb05WoGgug" modelId="_tNdHAGdhEe6lMrca3aAbUg" modelName="SnowFlake"/>
+  <metaDataResource id="_psIQ4GgHEe64bb05WoGgug" modelId="_fJxLEAUPEe6KSJG4806gvw" modelName="Snowflake"/>
+  <sourceSet id="_pluG4GgHEe64bb05WoGgug" modelId="ss-_VkqMUGgHEe64bb05WoGgug" name="Source MINA_VARIANT">
+    <field id="_plvVAGgHEe64bb05WoGgug" modelId="ssf-_VQ8mIWgHEe64bb05WoGgug" name="ADRIAN_VARIANT.ID"/>
+    <field id="_plvVAWgHEe64bb05WoGgug" modelId="ssf-_VQ90QGgHEe64bb05WoGgug" name="ADRIAN_VARIANT.VARIANT1"/>
+  </sourceSet>
+  <dataStore id="_plxxQmgHEe64bb05WoGgug" modelId="_VkqMUGgHEe64bb05WoGgug" name="MINA_VARIANT">
+    <field id="_plxxQ2gHEe64bb05WoGgug" modelId="_VksokWgHEe64bb05WoGgug" name="ID"/>
+    <field id="_plxxRGgHEe64bb05WoGgug" modelId="_Vkt2sGgHEe64bb05WoGgug" name="VARIANT1"/>
+  </dataStore>
+  <dataStore id="_plxKMGgHEe64bb05WoGgug" modelId="_VQsHcGgHEe64bb05WoGgug" name="ADRIAN_VARIANT">
+    <field id="_plxxQGgHEe64bb05WoGgug" modelId="_VQ8mIWgHEe64bb05WoGgug" name="ID"/>
+    <field id="_plxxQWgHEe64bb05WoGgug" modelId="_VQ90QGgHEe64bb05WoGgug" name="VARIANT1"/>
+  </dataStore>
+  <store id="_pl334GgHEe64bb05WoGgug" connectionName="MyDemoCloudDwh(_fJxLEAUPEe6KSJG4806gvw)" modelId="_A74asAUQEe6KSJG4806gvw" name="MINA_VARIANT" productCode="SNOWFLAKE"/>
+  <store id="_psIQ4WgHEe64bb05WoGgug" connectionName="MyDemoCloudDwh(_fJxLEAUPEe6KSJG4806gvw)" modelId="_AG1pEAUQEe6KSJG4806gvw" name="ADRIAN_VARIANT" productCode="SNOWFLAKE"/>
+  <metaDataHint id="_pl0NgWgHEe64bb05WoGgug">
+    <hint key="com.stambia.rdbms.column.COLUMN_NAME" value="ID"/>
+  </metaDataHint>
+  <metaDataHint id="_plzmcGgHEe64bb05WoGgug">
+    <hint key="com.stambia.rdbms.schema.TABLE_SCHEM" value="XDI_DEMO"/>
+  </metaDataHint>
+  <metaDataHint id="_ply_YGgHEe64bb05WoGgug">
+    <hint key="com.stambia.rdbms.server.url" value="jdbc:snowflake://mxb81804.snowflakecomputing.com/?warehouse=COMPUTE_WH&amp;db=DEMO_DB"/>
+  </metaDataHint>
+  <metaDataHint id="_pl0NgGgHEe64bb05WoGgug">
+    <hint key="com.stambia.rdbms.datastore.TABLE_NAME" value="ADRIAN_VARIANT"/>
+  </metaDataHint>
+  <metaDataHint id="_plzmcWgHEe64bb05WoGgug">
+    <hint key="com.stambia.rdbms.datastore.TABLE_NAME" value="MINA_VARIANT"/>
+  </metaDataHint>
+  <metaDataHint id="_pl0Ng2gHEe64bb05WoGgug">
+    <hint key="com.stambia.rdbms.column.COLUMN_NAME" value="VARIANT1"/>
+  </metaDataHint>
+  <metaDataHint id="_plzmcmgHEe64bb05WoGgug">
+    <hint key="com.stambia.rdbms.column.COLUMN_NAME" value="ID"/>
+  </metaDataHint>
+  <metaDataHint id="_pl0NgmgHEe64bb05WoGgug">
+    <hint key="com.stambia.rdbms.column.COLUMN_NAME" value="VARIANT1"/>
+  </metaDataHint>
+  <sourceSetToTargetDatastore source="_pluG4GgHEe64bb05WoGgug" target="_plxxQmgHEe64bb05WoGgug"/>
+  <sourceSetDatastoreFieldMapping source="_plvVAWgHEe64bb05WoGgug" target="_plxxQWgHEe64bb05WoGgug"/>
+  <sourceSetDatastoreFieldMapping source="_plvVAGgHEe64bb05WoGgug" target="_plxxQGgHEe64bb05WoGgug"/>
+  <fieldLineage source="_plvVAWgHEe64bb05WoGgug" target="_plxxRGgHEe64bb05WoGgug"/>
+  <fieldLineage source="_plvVAGgHEe64bb05WoGgug" target="_plxxQ2gHEe64bb05WoGgug"/>
+  <dataStorePhysicalStorage source="_plxxQmgHEe64bb05WoGgug" target="_pl334GgHEe64bb05WoGgug"/>
+  <dataStorePhysicalStorage source="_plxKMGgHEe64bb05WoGgug" target="_psIQ4WgHEe64bb05WoGgug"/>
+  <resourceOwner source="_pl2CsGgHEe64bb05WoGgug" target="_pluG4GgHEe64bb05WoGgug"/>
+  <resourceOwner source="_pl2CsGgHEe64bb05WoGgug" target="_plxxQmgHEe64bb05WoGgug"/>
+  <resourceOwner source="_pl2CsGgHEe64bb05WoGgug" target="_plxKMGgHEe64bb05WoGgug"/>
+  <resourceOwner source="_psIQ4GgHEe64bb05WoGgug" target="_pl334GgHEe64bb05WoGgug"/>
+  <resourceOwner source="_psIQ4GgHEe64bb05WoGgug" target="_psIQ4WgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQGgHEe64bb05WoGgug" target="_pl0NgWgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQ2gHEe64bb05WoGgug" target="_plzmcmgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxRGgHEe64bb05WoGgug" target="_pl0Ng2gHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQWgHEe64bb05WoGgug" target="_pl0NgmgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQ2gHEe64bb05WoGgug" target="_plzmcGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQWgHEe64bb05WoGgug" target="_plzmcGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_psIQ4WgHEe64bb05WoGgug" target="_plzmcGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxRGgHEe64bb05WoGgug" target="_plzmcGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQGgHEe64bb05WoGgug" target="_plzmcGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_pl334GgHEe64bb05WoGgug" target="_plzmcGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQ2gHEe64bb05WoGgug" target="_plzmcWgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxRGgHEe64bb05WoGgug" target="_plzmcWgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_pl334GgHEe64bb05WoGgug" target="_plzmcWgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQ2gHEe64bb05WoGgug" target="_ply_YGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQWgHEe64bb05WoGgug" target="_ply_YGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_psIQ4WgHEe64bb05WoGgug" target="_ply_YGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxRGgHEe64bb05WoGgug" target="_ply_YGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQGgHEe64bb05WoGgug" target="_ply_YGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_pl334GgHEe64bb05WoGgug" target="_ply_YGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQWgHEe64bb05WoGgug" target="_pl0NgGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_psIQ4WgHEe64bb05WoGgug" target="_pl0NgGgHEe64bb05WoGgug"/>
+  <modelObjectMetadataHint source="_plxxQGgHEe64bb05WoGgug" target="_pl0NgGgHEe64bb05WoGgug"/>
+</xdg:model>

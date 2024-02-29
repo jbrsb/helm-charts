@@ -1,0 +1,18 @@
+source:
+  type: file
+  config:
+    # Coordinates
+    filename: ./assets/datasets/xdm.json
+
+transformers:
+# Transformer to associate harvested assets to the initiative given by its URN
+- type: add_to_xdg_initiative
+  config:
+    initiative_urn: 'urn:li:dataProduct:data-quality'
+    xdg_backend_url: 'https://tenant.env.account.semarchy.net/api/intelligence/governance'
+
+sink:
+  type: "datahub-rest"
+  config:
+    server: 'https://tenant.env.account.semarchy.net/api/intelligence/catalog'
+    token: PASTE_TOKEN_HERE

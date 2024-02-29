@@ -1,0 +1,802 @@
+{
+	"info": {
+		"_postman_id": "2aa266e0-56b3-4d9c-92d7-c5f39b2dd676",
+		"name": "xDG APIs - 2024.1.0-rc.10-001",
+		"description": "Environment variables to set :\n\n- XDG_BACKEND_HOST : host of xDG Backend\n    \n- TOKEN : xDG access token, to get from the interface\n    \n- BADGE_URN : the urn of the badge\n    \n- ASSET_URN : the asset to link the badge def to or to emit metrics to\n    \n- INITIATIVE_URN : the urn of the initiative for the action\n    \n- SUB_INITIATIVE_URN : the urn of the initiative for the action",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27016866",
+		"_collection_link": "https://semarchy-xdg-dev.postman.co/workspace/xDG-dev-Team~eb01d527-0694-4d0c-8699-61cae9f214fd/collection/27016866-2aa266e0-56b3-4d9c-92d7-c5f39b2dd676?action=share&source=collection_link&creator=27016866"
+	},
+	"item": [
+		{
+			"name": "Initiative",
+			"item": [
+				{
+					"name": "Create initiative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", () => {\r",
+									"\r",
+									"  pm.response.to.have.status(201);\r",
+									"  \r",
+									"});\r",
+									"  \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Datahub-Actor",
+								"value": "urn:li:corpuser:data.steward@semarchy.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"urn\": \"my-initiative-1\",\r\n  \"title\": \"Initiative for test purpose\",\r\n  \"description\": \"This is my intiative for test purpose\",\r\n  \"domainUrn\" : \"urn:li:domain:governance\",\r\n  \"ownerUrn\" : \"urn:li:corpuser:data.steward@semarchy.com\",\r\n  \"ownerType\" : \"DATA_STEWARD\",\r\n  \"ownerTypeUrn\" : \"urn:li:ownershipType:__system__data_steward\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/initiative",
+							"host": [
+								"{{XDG_BACKEND_HOST}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"governance",
+								"initiative"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sub Initiative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", () => {\r",
+									"\r",
+									"  pm.response.to.have.status(201);\r",
+									"  \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Datahub-Actor",
+								"value": "urn:li:corpuser:data.steward@semarchy.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"urn\": \"my-sub-initiative-1\",\r\n  \"title\": \"Test Sub Initiative\",\r\n  \"description\": \"All about my test sub initiative\",\r\n  \"domainUrn\": \"urn:li:domain:governance\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/initiative/{{INITIATIVE_URN}}",
+							"host": [
+								"{{XDG_BACKEND_HOST}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"governance",
+								"initiative",
+								"{{INITIATIVE_URN}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sub Initiative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", () => {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/initiative/{{INITIATIVE_URN}}/{{SUB_INITIATIVE_URN}}",
+							"host": [
+								"{{XDG_BACKEND_HOST}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"governance",
+								"initiative",
+								"{{INITIATIVE_URN}}",
+								"{{SUB_INITIATIVE_URN}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Badges",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Badge Test Calculated",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", () => {\r",
+											"  pm.response.to.have.status(204);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"BadgeCalculated-1\",\r\n  \"name\": \"Badge For test purpose\",\r\n  \"description\": \"The Badge for test purpose\",\r\n  \"rule\" : \"Metrics.latestTimestamp + duration(1, \\\"w\\\") >= now() and hasVariance(Metrics.nb_owners)\",\r\n  \"ruleType\": \"CALCULATED\",\r\n  \"isFeatured\" : true, \r\n  \"states\": [\r\n    {\r\n      \"code\": \"true\",\r\n      \"label\": \"Active\",\r\n      \"description\": \"Initiative is active\",\r\n      \"icon\": \"icon-enabled\",\r\n      \"backgroundColor\": \"green\",\r\n      \"fontColor\": \"black\"\r\n    },\r\n    {\r\n      \"code\": \"false\",\r\n      \"label\": \"Inactive\",\r\n      \"description\": \"Initiative is missing some activity\",\r\n      \"icon\": \"icon-disabled\",\r\n      \"backgroundColor\": \"red\",\r\n      \"fontColor\": \"black\"\r\n    }\r\n  ],\r\n  \"valueType\": \"ENUM\",\r\n  \"frontendModificationRendering\": {\r\n    \"type\": \"BUTTONS\",\r\n    \"options\": \"{\\\"key\\\" : \\\"value\\\"}\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/badge/definition",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"badge",
+										"definition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Badge Test Manual",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", () => {\r",
+											"  pm.response.to.have.status(204);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"BadgeManual-1\",\r\n  \"name\": \"Happy Badge For test purpose\",\r\n  \"description\": \"The manual happy Badge for test purpose\",\r\n  \"rule\" : \"Metrics.happy\",\r\n  \"ruleType\": \"MANUAL\",\r\n  \"isFeatured\" : true, \r\n  \"states\": [\r\n    {\r\n      \"code\": \"1\",\r\n      \"label\": \"Happy\",\r\n      \"description\": \"Initiative is active\",\r\n      \"icon\": \"icon-enabled\",\r\n      \"backgroundColor\": \"green\",\r\n      \"fontColor\": \"black\"\r\n    },\r\n    {\r\n      \"code\": \"0\",\r\n      \"label\": \"UnHappy\",\r\n      \"description\": \"Initiative is missing some activity\",\r\n      \"icon\": \"icon-disabled\",\r\n      \"backgroundColor\": \"red\",\r\n      \"fontColor\": \"black\"\r\n    }\r\n  ],\r\n  \"valueType\": \"ENUM\",\r\n  \"frontendModificationRendering\": {\r\n    \"type\": \"BUTTONS\",\r\n    \"options\": \"{\\\"key\\\" : \\\"value\\\"}\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/badge/definition",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"badge",
+										"definition"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get",
+					"item": [
+						{
+							"name": "Badge",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", () => {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});\r",
+											"const responseJson = pm.response.json();"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/badge/definition/{{BADGE_URN}}",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"badge",
+										"definition",
+										"{{BADGE_URN}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Badge",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", () => {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/badge/definition",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"badge",
+										"definition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Badge softDeleted Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", () => {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"setTimeout(function(){}, 1000); // wait 1 seconds"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/badge/definition?softDeleted=true",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"badge",
+										"definition"
+									],
+									"query": [
+										{
+											"key": "softDeleted",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Link",
+					"item": [
+						{
+							"name": "Link Badge Defs to Asset",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", () => {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"definitionList\": [\r\n    \"{{BADGE_URN}}\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/asset/{{ASSET_URN}}/badge/link",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"asset",
+										"{{ASSET_URN}}",
+										"badge",
+										"link"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UnLink Badge Defs from Asset",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", () => {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"definitionList\": [\r\n    \"{{BADGE_URN}}\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/asset/{{ASSET_URN}}/badge/unlink",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"asset",
+										"{{ASSET_URN}}",
+										"badge",
+										"unlink"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete Badge",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", () => {\r",
+											"  pm.response.to.have.status(204);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/badge/definition/{{BADGE_URN}}",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"badge",
+										"definition",
+										"{{BADGE_URN}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clean Badge",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", () => {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/badge/definition/{{BADGE_URN}}/clean",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"badge",
+										"definition",
+										"{{BADGE_URN}}",
+										"clean"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clean Badges",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", () => {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/badge/definition/clean",
+									"host": [
+										"{{XDG_BACKEND_HOST}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"governance",
+										"badge",
+										"definition",
+										"clean"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Metrics",
+			"item": [
+				{
+					"name": "Emit Metric on Asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"metrics\" : [\r\n        {\r\n            \"name\" : \"satisfaction\", \r\n            \"value\" : \"7\"\r\n        },{\r\n            \"name\" : \"pii-compliant\", \r\n            \"value\" : \"0\"\r\n        }\r\n    ]\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{XDG_BACKEND_HOST}}/api/v3/governance/{{ASSET_URN}}/metric",
+							"host": [
+								"{{XDG_BACKEND_HOST}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"governance",
+								"{{ASSET_URN}}",
+								"metric"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

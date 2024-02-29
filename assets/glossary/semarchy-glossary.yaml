@@ -1,0 +1,97 @@
+version: 1
+source: Semarchy
+owners:
+ users:
+   - DataHub
+nodes:
+  - name: Semarchy
+    description: A set of terms related to the Semarchy Unified Data Platform.
+    id: semarchy
+    nodes:
+      - name: xDM
+        id: xdm
+        description: A set of terms related to Semarchy xDM.
+        terms:
+        - name: Golden Data
+          id: golden
+          description: Golden data, consolidated and certified.
+        - name: Master Data
+          id: master
+          description: Master data enriched, validated and cleansed.
+        - name: Source Data
+          id: source
+          description: Source data successively loaded by the publishers or authored by users.
+        - name: Source Errors
+          id: source-error
+          description: Errors detected on source data loaded. (pre-consolidation).
+        - name: Golden Errors
+          id: golden-error
+          description: Errors detected after master data consolidation (post-consolidation).
+        - name: Golden History
+          id: golden-history
+          description: Golden data history.
+        - name: Master History
+          id: master-history
+          description: Master data history.
+        - name: Entity
+          id: entity
+          description: |-
+            Entities are the key components of the logical modeling. 
+            Entities are *not* database tables. They represent Business Entities of the domain being implemented in the Data Hub.
+            Example of entities: Customers, Contacts, Parties, etc.
+      - name: xDG
+        description: A set of terms related to the Semarchy xDG.
+        id: xdg
+        nodes:
+          - name: Asset Charting
+            id: asset-charting
+            description: A set of terms helping asset territory charting.
+            terms:
+            - name: Unknown
+              id: unknown
+              description: |-
+                Asset which status is unknown.
+            - name: To Harvest
+              id: to-harvest
+              description: |-
+                Asset that needs harvesting.
+            - name: To Review
+              id: to-review
+              description: |-
+                Asset that needs harvesting.
+            - name: Charted
+              id: charted
+              description: |-
+                Asset clarified or harvested, then reviewed.
+      - name: Classification
+        description: A set of terms related to the Semarchy Unified Data Platform.
+        id: classification
+        nodes:
+          - name: Sensitivity
+            id: sensitivity
+            description: Sensitivity classification for data assets
+            terms:
+            - name: Public
+              id: public
+              description: |-
+                This information is public information, and can be openly shared on your website, discussed in public and with anyone. 
+                Public information as the name implies, is public, and does not require any additional controls when used.
+            - name: Internal
+              id: internal
+              description: |-
+                Internal information is company-wide and should be protected with limited controls.
+                Internal information may include the employee handbook, various policies and company-wide memos.
+                If disclosed, Internal information has a minimal impact to the business.
+            - name: Confidential
+              id: confidential
+              description: |-
+                Confidential information is team-wide and its use should be contained within the business.
+                This information may include pricing, marketing materials, or contact information.
+                **If disclosed, Confidential information could negatively affect your business and ultimately the company brand.**
+            - name: Restricted
+              id: restricted
+              description: |-
+                Restricted information is highly sensitive and its use should be limited on a need-to-know basis.
+                Restricted information is typically protected with a Non-disclosure Agreement (NDA) to minimize legal risk.
+                Restricted information includes trade secrets, potentially identifiable information (PII), cardholder data (credit cards), or health information. 
+                **If disclosed, there would be a significant financial or legal impact to the business.**

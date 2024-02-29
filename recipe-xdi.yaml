@@ -1,0 +1,11 @@
+source:
+  type: semarchy-xdi
+  config:
+    xdi_filename: './xdi-mappings/default.deliv.xdg'
+    # (optional) URN of the initiative to which harvested assets should be linked
+    # initiative_urn: 'urn:li:dataProduct:<...>'
+sink:
+  type: "datahub-rest"
+  config:
+    server: 'https://tenant.env.account.semarchy.net/api/intelligence/catalog' # Change to desired xDG/DataHub's GMS instance running anywhere remotely (cloud, etc…)
+    token: PASTE_TOKEN_HERE

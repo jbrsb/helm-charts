@@ -1,0 +1,35 @@
+# Inlined from /metadata-ingestion/examples/data_product/dataproduct.yaml
+id: data-privacy
+domain: sales
+display_name: Data Privacy
+description: |-
+  The **Data Privacy Project** is a comprehensive initiative aimed at safeguarding sensitive information and upholding user privacy in today's digital landscape. In an era where data is omnipresent and constantly exchanged, the project focuses on implementing robust measures to protect individuals' personal information from unauthorized access and misuse.
+
+  ### Key Objectives
+
+  **1. Encryption and Secure Transmission**: Implement state-of-the-art encryption techniques to ensure secure transmission of data, both within the organization and to external entities. This involves employing industry-standard encryption algorithms and secure communication protocols.
+
+  **2. User Consent and Transparency**: Prioritize user consent and transparency by establishing clear communication channels to inform users about the types of data collected, how it will be used, and obtaining explicit consent before any data processing activities take place.
+
+  **3. Access Controls and Authentication**: Enforce strict access controls and authentication mechanisms to restrict data access only to authorized personnel. Multi-factor authentication and role-based access systems will be implemented to enhance data security.
+
+  **4. Regular Audits and Compliance Checks**: Conduct regular audits to assess the effectiveness of data privacy measures and ensure compliance with relevant privacy regulations and standards. This includes GDPR, CCPA, and other applicable data protection laws.
+
+  **5. Data Minimization and Retention Policies**: Adopt data minimization principles to collect only the necessary information for specified purposes. Implement data retention policies to manage the lifecycle of data and dispose of it securely when no longer needed.
+
+  ### Expected Outcomes
+
+  The Data Privacy Project aims to establish a culture of privacy within the organization, instilling trust among users and ensuring compliance with global data protection standards. Through a combination of advanced technology, transparent practices, and ongoing evaluation, the project seeks to be a benchmark for responsible and ethical data handling in the digital age.
+terms:
+- urn:li:glossaryTerm:Semarchy.xDG-Internal.Initiative
+properties:
+  Regulated: Yes
+  Legal Approval: Required
+  Internal Reference: DATA_PRIVACY_6B45
+owners:
+- id: urn:li:corpuser:fx.nicolas@semarchy.com
+  type: BUSINESS_OWNER
+- id: urn:li:corpuser:sebastien.arod@semarchy.com
+  type: BUSINESS_OWNER
+- id: urn:li:corpuser:alexandre.janin@semarchy.com
+  type: TECHNICAL_OWNER

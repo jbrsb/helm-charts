@@ -1,0 +1,81 @@
+# xDG Demo Setup
+
+Prerequisites is to connect with your user and generate a PAT from the My Token Page.
+
+## Environement Setup
+
+### Python
+
+Create a Python virtual environment (a.k.a. venv)
+
+    python3 -m venv venv
+    source venv/bin/activate
+
+Install the required packages from the xDG dedicated PyPi server:
+    pip install datahub
+
+    or
+
+    pip install --index-url http://xdg-pypi.dev.semarchy.com:8080/simple "semarchy-xdg[semarchy-xdi,semarchy-xdm]" --use-deprecated=legacy-resolver --trusted-host xdg-pypi.dev.semarchy.com
+
+## Demo Setup
+
+### Set up a domain
+
+. Run the create_domain.py script.
+
+    .venv/bin/python ./create_domain.py <url-gms> <token>
+
+### Create internal Users
+
+    datahub user upsert -f ./assets/users/internal-user.yaml
+
+### Set up groups
+
+ ### WARNING INFINITE LOOP BUG SUSPECTED   ../../xdg-command.sh group upsert -f ./assets/groups/sales.yaml
+
+### Set up Initiatives
+
+    datahub dataproduct upsert -f ./assets/data-products/data-quality.yaml
+    datahub dataproduct upsert -f ./assets/data-products/data-privacy.yaml
+
+### Set up Semarchy Glossary Documentation
+   ### WARNING Risk of Collision to be merged in our own Glossary Init Setup  ../../xdg-harvest.sh -c recipe-glossary-semarchy.yaml
+
+### Set up Glossary Customer Business GLossary Terms
+    ../../tools/xdg-harvest.sh -c recipe-glossary-sales.yaml
+
+### Harvest xDM
+
+The following pushes the file content to xDG
+
+    ../../tools/xdg-harvest.sh -c recipe-xdm-from-file.yaml
+
+### Harvest Snowflake
+
+The following pushes the file content to xDG
+
+   ../../tools/xdg-harvest.sh -c recipe-snowflake-from-file.yaml
+
+### Harvest xDI
+
+The following pushes the xDI mappings to xDG
+
+    ../../tools/xdg-harvest.sh -c recipe-xdi-xdm-to-snowflake.yaml 
+    ../../tools/xdg-harvest.sh -c recipe-xdi-excel-to-xdm.yaml 
+
+
+## Emit Metric from anywhere with Postman
+
+Load the `xDG APIs - 2024.1.0-rc.10-001-Backend APIs.postman_collection.json` file with postman. 
+Create an environment to set up your xDG instance to connect to. 
+Fill in the following variables in the environment that you will use : 
+ - XDG_BACKEND_HOST : host of your xDG backend 
+ - METRIC_EMISSION_ASSET_URN : urn of the asset you want emit metric to (it should be an iniativate or a dataset)
+ - TOKEN : a JWT token that you can generate from `My Tokens` session in the xDG web interface. 
+
+ You can then launch the `Emit Metric on Asset` request from the collection. 
+ In this request you can customize the body of the request : 
+  - the timestamp ( to get current timestamp juste remove the timestamp parameter)
+  - the metrics array : you can fill in a metrics with metric elements filled in with name and value of metrics
+  

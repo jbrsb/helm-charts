@@ -1,0 +1,39 @@
+# Inlined from /metadata-ingestion/examples/data_product/dataproduct.yaml
+id: data-quality
+domain: sales
+display_name: Data Quality
+description: |-
+  The **Data Quality Project** is a strategic initiative aimed at enhancing the accuracy, reliability, and completeness of our organization's data assets. In an era where data-driven decision-making is paramount, ensuring the highest standards of data quality is imperative for driving successful business outcomes.
+
+  ### Objectives
+
+  **1. Accuracy Improvement**: Implementing rigorous data validation processes to identify and rectify inaccuracies in our datasets, ensuring that stakeholders can confidently rely on the data for critical analyses.
+
+  **2. Consistency Enhancement**: Establishing standardized data formats, naming conventions, and data categorization to promote consistency across various sources and systems, reducing discrepancies and streamlining data integration.
+
+  **3. Completeness Assurance**: Implementing measures to fill data gaps and enhance the comprehensiveness of our datasets, ensuring that decision-makers have a holistic view of the information.
+
+  **4. Data Governance Strengthening**: Enhancing data governance policies and procedures to ensure that data quality standards are maintained throughout the data lifecycle, from acquisition to disposal.
+
+  ### Key Activities
+
+  * Conducting thorough data profiling and cleansing activities.
+  * Implementing data quality metrics and monitoring mechanisms.
+  * Establishing data quality dashboards for real-time monitoring.
+  * Providing training programs to promote data quality awareness and best practices among teams.
+
+  By undertaking the Data Quality Project, we are committed to elevating the integrity of our data, empowering our organization with reliable insights for informed decision-making.
+
+terms:
+- urn:li:glossaryTerm:Semarchy.xDG-Internal.Initiative
+properties:
+  Regulated: No
+  Legal Approval: Optional
+  Internal Reference: DATA_QUALITY_5G09
+owners:
+- id: urn:li:corpuser:arnaud.mergey@semarchy.com
+  type: BUSINESS_OWNER
+- id: urn:li:corpuser:gina.chiquillo@semarchy.com
+  type: BUSINESS_OWNER
+- id: urn:li:corpuser:alexandre.janin@semarchy.com
+  type: BUSINESS_OWNER

@@ -1,0 +1,16 @@
+source:
+  type: semarchy-xdi
+  config:
+    xdi_filename: './SnowFlake.deliv.xdg'
+    # initiative
+    #initiative_urn: 'urn:li:dataProduct:BigQuery'
+transformers:
+- type: "add_to_xdg_initiative"
+  config:
+    initiative_urn: "urn:li:dataProduct:transfo_snowflake"
+    xdg_backend_url: "https://tenant.env.account.semarchy.net/api/intelligence/governance"
+sink:
+  type: "datahub-rest"
+  config:
+    server: "https://tenant.env.account.semarchy.net/api/intelligence/catalog" # Change to desired xDG/DataHub's GMS instance running anywhere remotely (cloud, etc…)
+    token: PASTE_TOKEN_HERE

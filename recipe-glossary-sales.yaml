@@ -1,0 +1,10 @@
+source:
+  type: datahub-business-glossary
+  config:
+    file: ./assets/glossary/sales-glossary.yaml
+    enable_auto_id: false
+sink:
+  type: "datahub-rest"
+  config:
+    server: 'https://tenant.env.account.semarchy.net/api/intelligence/catalog' # Change to desired xDG/DataHub's GMS instance running anywhere remotely (cloud, etc…)
+    token: PASTE_TOKEN_HERE

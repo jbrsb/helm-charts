@@ -1,0 +1,13 @@
+id: sales@semarchy.com
+display_name: Sales Team
+admins:
+  - id: ryan.bankhead@semarchy.com
+    display_name: Ryan Bankhead
+members:
+  - ryan.bankhead@semarchy.com
+  - id: john.doe@semarchy.com
+    email: john.doe@semarchy.com
+    display_name: John Doe
+  - id: jane.doe@semarchy.com
+    email: jane.doe@semarchy.com
+    display_name: Jane Doe
